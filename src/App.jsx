@@ -1,8 +1,3 @@
-i// Dashboard Manajemen Inventaris Barang Gudang
-// Nama: Mochamad Hafidz Azzakiy
-// NIM: 2511501031
-// Studi Kasus: 1
-
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
@@ -28,7 +23,7 @@ function App() {
 
     if (currentItem) {
       // Update data yang sudah ada
-      setItems(items.map(i => i.id === updatedItem.id ? updatedItem : i));
+      setItems(items.map(existingItem => existingItem.id === updatedItem.id ? updatedItem : existingItem));
     } else {
       // Tambah data baru
       setItems([...items, updatedItem]);
@@ -40,7 +35,7 @@ function App() {
   // Fungsi untuk menghapus data (Delete)
   const handleDelete = (id) => {
     if (window.confirm('Yakin ingin menghapus barang ini?')) {
-      setItems(items.filter(i => i.id !== id));
+      setItems(items.filter(existingItem => existingItem.id !== id));
     }
   };
 
@@ -62,4 +57,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
